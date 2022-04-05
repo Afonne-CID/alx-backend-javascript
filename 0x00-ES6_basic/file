@@ -1,3 +1,0 @@
-install --save-dev jestvalue = array[idx];
-npm install --save-dev babel-jest @babel/core @babel/preset-env
-npm install --save-dev eslint
