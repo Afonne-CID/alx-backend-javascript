@@ -6,7 +6,8 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
 	try {
 		const outcome = await signUpUser(firstName, lastName);
 		res.push({ status: 'fulfilled', value: outcome });
-	}.catch(err) {
+                await uploadPhoto(fileName);
+	} catch(err) {
 		res.push( { 
 			status: 'rejected',
 			value: `Error: ${fileName} cannot be processed`,
