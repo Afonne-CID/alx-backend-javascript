@@ -8,6 +8,9 @@ export default class Pricing {
 
   // `amount` Setter and Getter
   set amount(amount) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
     this._amount = amount;
   }
 
@@ -17,6 +20,9 @@ export default class Pricing {
 
   // `currency` Setter and Getter
   set currency(currency) {
+    if (!(currency instanceof Currency)) {
+      throw TypeError('currency must be a Currency');
+    }
     this._currency = currency;
   }
 
@@ -29,6 +35,12 @@ export default class Pricing {
   }
 
   static conversionRate(amount, conversionRate) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError('conversionRate must be a number');
+    }
     return amount * conversionRate;
   }
 }
