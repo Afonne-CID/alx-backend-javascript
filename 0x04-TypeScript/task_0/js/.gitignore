@@ -1,5 +1,7 @@
+dist
 node_modules
 package-lock.json
 tsconfig.json
-package.json  pkg.json
+package.json
+pkg.json
 webpack.config.js
