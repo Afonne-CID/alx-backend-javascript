@@ -17,7 +17,7 @@ class Director implements DirectorInterface {
   getToWork(): string {
     return 'Getting a coffee break';
   }
-  workDirecotrTasks(): string {
+  workDirectorTasks(): string {
     return 'Getting to director tasks';
   }
 }
@@ -35,12 +35,18 @@ class Teacher implements TeacherInterface {
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-    if (salary as number && salary < 500) {
-      return new Teacher();
-    }
-    return new Director();
+    if (salary as number && salary < 500) return new Teacher();
+    else return new Director();
 }
 
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
+
+function isDirector(employee) {
+  return employee instanceof Director;
+}
+
+function executeWork(employee: Director | Teacher): string {
+  return isDirector(employee) ? employee.workDirectorTasks() : employee.workTeacherTasks();
+}
